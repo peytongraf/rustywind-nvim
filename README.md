@@ -45,7 +45,6 @@ After installation, the plugin will automatically sort Tailwind CSS classes upon
 ### Commands
 
 - Format Current File: `:RW format` - Formats the Tailwind classes in the current file.
-- Run: `:RW dryrun` - Shows the changes that would be made without applying them.
 - Check Formatted: `:RW checkformatted` - Checks if the file is already formatted.
 - Autoformat Enable: `:RW autoformatEnable` - Enables autoformatting on save
 - Autoformat Disable: `:RW autoformatDisable` - Disables autoformatting on save

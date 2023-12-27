@@ -60,10 +60,6 @@ format = function()
     end
     execute_rustywind_command('rustywind --write ' .. current_file, false)
 end,
-  run = function()
-    local current_file = vim.api.nvim_buf_get_name(0)
-    execute_rustywind_command('rustywind ' .. current_file, true)
-  end,
    autoformatEnable = function()
     M.opts.auto_sort_on_save = true
     print("Rustywind autoformat enabled")
