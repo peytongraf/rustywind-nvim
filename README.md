@@ -8,11 +8,11 @@ Automatic Formatting on Save: Automatically formats Tailwind classes when saving
 Manual Formatting Commands: Manually trigger formatting of Tailwind classes in your files.
 Supports Multiple File Types: Works with .html, .js, .jsx, .ts, .tsx, .vue, and more.
 
-## **Requirements**
+## Requirements
 
 First, install the RustyWind CLI https://github.com/avencera/rustywind
 
-## **Usage**
+## Installation
 
 Install using your package manager. Here I am using lazy.
 
@@ -36,11 +36,9 @@ Install using your package manager. Here I am using lazy.
 
 ```
 
-## Usage
-
 After installation, the plugin will automatically sort Tailwind CSS classes upon saving, provided that the filetype of the current buffer has been included in the ft = {} configuration. This ensures that the plugin activates only when opening files of the specified filetypes.
 
-### Commands
+## Commands
 
 - Format Current File: `:RW format` - Formats the Tailwind classes in the current file.
 - Autoformat Enable: `:RW autoformatEnable` - Enables autoformatting on save
