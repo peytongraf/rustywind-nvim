@@ -52,21 +52,21 @@ end
 
 -- Table of RustyWind commands
 local rustywind_commands = {
-format = function()
+  format = function()
     local current_file = vim.api.nvim_buf_get_name(0)
     if current_file == "" or current_file == nil then
         print("Rustywind: No file name associated with the current buffer.")
         return
     end
     execute_rustywind_command('rustywind --write ' .. current_file, false)
-end,
-   autoformatEnable = function()
-    M.opts.auto_sort_on_save = true
-    print("Rustywind autoformat enabled")
+  end,
+    autoformatEnable = function()
+      M.opts.auto_sort_on_save = true
+      print("Rustywind autoformat enabled")
    end,
    autoformatDisable = function()
-    M.opts.auto_sort_on_save = false
-    print("Rustywind autoformat disabled")
+      M.opts.auto_sort_on_save = false
+      print("Rustywind autoformat disabled")
    end,
 }
 

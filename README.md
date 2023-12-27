@@ -1,14 +1,12 @@
 # RustyWind-nvim
 
-Automatically sort tailwind css classes on save from with neovim. Rustywind-nvim integrates the RustyWind CLI tool allowing you to also run Rustywind CLI commands as neovim commands.
+Automatically sort Tailwind CSS classes upon saving in Neovim with RustyWind-nvim. This integration brings the functionality of the Rustywind CLI into your Neovim environment, eliminating the need for manual CLI commands to format Tailwind classes.
 
 ## Features
 
 Automatic Formatting on Save: Automatically formats Tailwind classes when saving files.
 Manual Formatting Commands: Manually trigger formatting of Tailwind classes in your files.
 Supports Multiple File Types: Works with .html, .js, .jsx, .ts, .tsx, .vue, and more.
-Installation
-To install the RustyWind Neovim plugin, use your favorite plugin manager.
 
 ## **Requirements**
 
@@ -45,7 +43,6 @@ After installation, the plugin will automatically sort Tailwind CSS classes upon
 ### Commands
 
 - Format Current File: `:RW format` - Formats the Tailwind classes in the current file.
-- Check Formatted: `:RW checkformatted` - Checks if the file is already formatted.
 - Autoformat Enable: `:RW autoformatEnable` - Enables autoformatting on save
 - Autoformat Disable: `:RW autoformatDisable` - Disables autoformatting on save
 
