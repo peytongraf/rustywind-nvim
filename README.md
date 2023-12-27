@@ -16,36 +16,39 @@ First, install the RustyWind CLI https://github.com/avencera/rustywind
 
 ## **Usage**
 
-vim-plug:
-
-```vim
-Plug 'peytongraf/rustywind-nvim'
-```
-
-packer.nvim:
+Install using your package manager. Here I am using lazy.
 
 ```lua
-use 'peytongraf/rustywind-nvim'
+  {
+  "peytongraf/rustywind-nvim",
+  ft = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    },
+  config = function()
+    require("rustywind-nvim").setup({
+      -- add the following line to initially disable autoformatting on save
+      -- auto_sort_on_save = false
+    })
+  end
+  },
+
 ```
 
-## **Usage**
+## Usage
 
-After installation, the plugin provides several commands for sorting Tailwind classes.
+After installation, the plugin will automatically sort Tailwind CSS classes upon saving, provided that the filetype of the current buffer has been included in the ft = {} configuration. This ensures that the plugin activates only when opening files of the specified filetypes.
+
+### Commands
 
 - Format Current File: `:RW format` - Formats the Tailwind classes in the current file.
-- Dry Run: `:RW dryrun` - Shows the changes that would be made without applying them.
+- Run: `:RW dryrun` - Shows the changes that would be made without applying them.
 - Check Formatted: `:RW checkformatted` - Checks if the file is already formatted.
--
-
-## **Configuration**
-
-You can configure the plugin by calling the setup function in your Neovim configuration file:
-
-```lua
-require('rustywind-nvim').setup({
-    -- Your configuration options here
-})
-```
+- Autoformat Enable: `:RW autoformatEnable` - Enables autoformatting on save
+- Autoformat Disable: `:RW autoformatDisable` - Disables autoformatting on save
 
 License
 MIT License

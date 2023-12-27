@@ -38,7 +38,7 @@ local function execute_rustywind_command(cmd, show_output)
       title_pos = 'left',
       row = math.floor(((vim.o.lines - height) / 2) - 1),
       col = math.floor((vim.o.lines - height) / 2),
-      width = 69,
+      width = 70,
       height = height,
       style = 'minimal',
       border = 'rounded',
