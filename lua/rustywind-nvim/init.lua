@@ -15,11 +15,13 @@ function M.setup(opts)
 end
 
 local function rustywind_format()
+
   local current_file = vim.api.nvim_buf_get_name(0)
   if current_file == "" or current_file == nil then
       print("Rustywind: No file name associated with the current buffer.")
       return
   end
+
   local result = vim.fn.system('rustywind --write ' .. current_file)
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_err_writeln("Rustywind: ", result)
@@ -43,13 +45,15 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = "*",
   callback = function()
     if M.opts.auto_sort_on_save then
-      vim.api.nvim_set_option('autoread', true)
+      -- Save the view state
+      local view = vim.fn.winsaveview()
       rustywind_format()
+      -- Reload the buffer to reflect the changes
       vim.cmd("edit")
-      vim.cmd("redraw!")
+      -- Restore the view state
+      vim.fn.winrestview(view)
     end
   end,
 })
 
 return M
-
