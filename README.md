@@ -4,6 +4,10 @@ Automatically sort Tailwind CSS classes upon saving in Neovim with RustyWind-nvi
 
 ![rustywind](https://github.com/peytongraf/rustywind-nvim/assets/108034200/d31173c8-d5b6-4a93-89e7-d9e5a54c3e88)
 
+## Demo
+
+https://github.com/peytongraf/rustywind-nvim/assets/108034200/b6a1c45e-ea47-4d8e-aa3d-58d862a51d2e
+
 ## Requirements
 
 First, install the RustyWind CLI https://github.com/avencera/rustywind
