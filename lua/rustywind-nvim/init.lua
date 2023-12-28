@@ -27,13 +27,13 @@ local function rustywind_format()
 end
 
 -- RustyWind Autoformat Enable Command
-vim.api.nvim_create_user_command('RWAutoformatEnable', function()
+vim.api.nvim_create_user_command('RWEnable', function()
   M.opts.auto_sort_on_save = true
   print("Rustywind autoformat enabled")
 end, {})
 
 -- RustyWind Autoformat Disable Command
-vim.api.nvim_create_user_command('RWAutoformatDisable', function()
+vim.api.nvim_create_user_command('RWDisable', function()
   M.opts.auto_sort_on_save = false
   print("Rustywind autoformat disabled")
 end, {})
