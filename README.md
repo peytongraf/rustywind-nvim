@@ -4,12 +4,6 @@ Automatically sort Tailwind CSS classes upon saving in Neovim with RustyWind-nvi
 
 ![rustywind](https://github.com/peytongraf/rustywind-nvim/assets/108034200/d31173c8-d5b6-4a93-89e7-d9e5a54c3e88)
 
-## Features
-
-Automatic Formatting on Save: Automatically formats Tailwind classes when saving files.
-Manual Formatting Commands: Manually trigger formatting of Tailwind classes in your files.
-Supports Multiple File Types: Works with .html, .js, .jsx, .ts, .tsx, .vue, and more.
-
 ## Requirements
 
 First, install the RustyWind CLI https://github.com/avencera/rustywind
@@ -22,6 +16,7 @@ Install using your package manager. Here I am using lazy.
   {
   "peytongraf/rustywind-nvim",
   ft = {
+    -- add or remove filetypes in which the plugin should load for as needed
     "javascript",
     "javascriptreact",
     "typescript",
@@ -42,7 +37,6 @@ After installation, the plugin will automatically sort Tailwind CSS classes upon
 
 ## Commands
 
-- Format Current File: `:RW format` - Formats the Tailwind classes in the current file.
 - Autoformat Enable: `:RW autoformatEnable` - Enables autoformatting on save
 - Autoformat Disable: `:RW autoformatDisable` - Disables autoformatting on save
 
