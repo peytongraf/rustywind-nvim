@@ -41,8 +41,8 @@ After installation, the plugin will automatically sort Tailwind CSS classes upon
 
 ## Commands
 
-- Autoformat Enable: `:RW autoformatEnable` - Enables autoformatting on save
-- Autoformat Disable: `:RW autoformatDisable` - Disables autoformatting on save
+- `:RWEnable` - Enables autoformatting on save
+- `:RWDisable` - Disables autoformatting on save
 
 License
 MIT License
