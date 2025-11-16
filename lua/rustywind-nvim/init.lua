@@ -16,62 +16,40 @@ end
 
 local function rustywind_format()
 	local current_file = vim.api.nvim_buf_get_name(0)
-
 	if current_file == "" or current_file == nil then
-		vim.api.nvim_echo({ { "Rustywind: No file name associated with the current buffer.", "ErrorMsg" } }, true, {})
+		print("Rustywind: No file name associated with the current buffer.")
 		return
 	end
 
-	-- Shell-escape the filename
-	local escaped_file = vim.fn.shellescape(current_file)
-	local cmd = "rustywind --write " .. escaped_file
-
-	-- Check timestamp before running rustywind
-	local before = vim.fn.getftime(current_file)
-	local result = vim.fn.system(cmd)
-	local after = vim.fn.getftime(current_file)
-
-	-- Print error messages if rustywind failed
+	local result = vim.fn.system("rustywind --write " .. current_file)
 	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Rustywind error:\n", "ErrorMsg" },
-			{ result or "", "ErrorMsg" },
-		}, true, {})
-		return
+		vim.api.nvim_echo({ { "Rustywind: ", result } }, true, {})
 	end
-
-	-- If no change occurred, do nothing
-	if before == after then
-		return false
-	end
-
-	return true
 end
 
--- User commands
+-- RustyWind Autoformat Enable Command
 vim.api.nvim_create_user_command("RWEnable", function()
 	M.opts.auto_sort_on_save = true
 	print("Rustywind autoformat enabled")
 end, {})
 
+-- RustyWind Autoformat Disable Command
 vim.api.nvim_create_user_command("RWDisable", function()
 	M.opts.auto_sort_on_save = false
 	print("Rustywind autoformat disabled")
 end, {})
 
--- Autosave hook
+-- Auto-save
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "*",
 	callback = function()
 		if M.opts.auto_sort_on_save then
+			-- Save the view state
 			local view = vim.fn.winsaveview()
-
-			local changed = rustywind_format()
-			if changed then
-				-- Only reload if the file was actually modified
-				vim.cmd("edit")
-			end
-
+			rustywind_format()
+			-- Reload the buffer to reflect the changes
+			vim.cmd("edit")
+			-- Restore the view state
 			vim.fn.winrestview(view)
 		end
 	end,
